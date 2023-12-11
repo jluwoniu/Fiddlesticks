@@ -1,9 +1,34 @@
 use base64::{engine::general_purpose, Engine};
-use reqwest::Client;
+use reqwest::{Client, Method, RequestBuilder};
 use reqwest::{header, Certificate};
 use serde::Serialize;
 use std::time::Duration;
 use sysinfo::{ProcessExt, System, SystemExt};
+
+
+
+pub mod endpoints;
+pub mod models;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 #[derive(Debug)]
 pub struct Credentials {
     name: String,
@@ -132,6 +157,20 @@ impl LeagueClient {
             .await
             .or_else(|_| Ok(serde_json::Value::Null))
     }
+
+    pub fn request(&self, method: Method, path: &str) -> RequestBuilder {
+        self.client
+            .request(method, format!("https://127.0.0.1:{}{}", self.credentials.port, path))
+    }
+
+    pub async fn execute_val<'a, T: serde::de::DeserializeOwned + 'a>(
+        &'a self,
+        request: RequestBuilder,
+    ) -> Result<T, reqwest::Error> {
+        let response = request.send().await?;
+        let value = response.json::<T>().await;
+        value
+    }
 }
 
 pub(crate) fn build_reqwest_client(auth_token: Option<String>) -> reqwest::Client {
@@ -162,6 +201,7 @@ mod tests {
         let result = authenticate("LeagueClientUx.exe");
         // 断言result为Ok
         assert!(result.is_ok());
+        println!("{:?}", result);
     }
 
     #[test]
@@ -177,6 +217,6 @@ mod tests {
             .get("/lol-summoner/v1/current-summoner".to_owned())
             .await;
         assert!(result.is_ok());
-        println!("{:?}", result);
+        println!("{:?}", result.unwrap().to_string());
     }
 }
