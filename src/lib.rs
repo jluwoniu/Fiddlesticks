@@ -199,7 +199,6 @@ mod tests {
     #[test]
     fn test_authenticate() {
         let result = authenticate("LeagueClientUx.exe");
-        // 断言result为Ok
         assert!(result.is_ok());
         println!("{:?}", result);
     }
