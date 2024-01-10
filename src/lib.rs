@@ -79,6 +79,7 @@ impl LeagueClient {
     /// Create a new instance of the LCU REST wrapper
     pub fn new() -> Result<Self, Error> {
         let credentials = authenticate("LeagueClientUx.exe")?;
+        println!("{:?}",credentials);
         let token = general_purpose::STANDARD
             .encode(format!("{}:{}", credentials.name, credentials.password));
         let client = build_reqwest_client(Some(token));
