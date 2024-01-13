@@ -1,0 +1,105 @@
+{
+  "actions": [
+    [
+      {
+        "actorCellId": 1,
+        "championId": 0,
+        "completed": true,
+        "id": 1,
+        "isAllyAction": false,
+        "isInProgress": false,
+        "pickTurn": 1,
+        "type": "pick"
+      },
+      {
+        "actorCellId": 0,
+        "championId": 0,
+        "completed": true,
+        "id": 2,
+        "isAllyAction": true,
+        "isInProgress": false,
+        "pickTurn": 1,
+        "type": "pick"
+      }
+    ]
+  ],
+  "allowBattleBoost": false,
+  "allowDuplicatePicks": false,
+  "allowLockedEvents": false,
+  "allowRerolling": false,
+  "allowSkinSelection": true,
+  "bans": {
+    "myTeamBans": [],
+    "numBans": 0,
+    "theirTeamBans": []
+  },
+  "benchChampions": [],
+  "benchEnabled": false,
+  "boostableSkinCount": 1,
+  "chatDetails": {
+    "mucJwtDto": {
+      "channelClaim": "",
+      "domain": "",
+      "jwt": "",
+      "targetRegion": ""
+    },
+    "multiUserChatId": "c1~99d2f86e29813c4e2f97b6f041d4a1bb42140c29",
+    "multiUserChatPassword": "zASj7zgFDl1kKOeW"
+  },
+  "counter": -1,
+  "gameId": 0,
+  "hasSimultaneousBans": false,
+  "hasSimultaneousPicks": true,
+  "isCustomGame": true,
+  "isSpectating": false,
+  "localPlayerCellId": 0,
+  "lockedEventIndex": -1,
+  "myTeam": [
+    {
+      "assignedPosition": "",
+      "cellId": 0,
+      "championId": 141,
+      "championPickIntent": 0,
+      "nameVisibilityType": "",
+      "obfuscatedPuuid": "",
+      "obfuscatedSummonerId": 0,
+      "puuid": "8c5f2d81-cb0d-54a6-acdf-29376ed366ad",
+      "selectedSkinId": 141009,
+      "spell1Id": 7,
+      "spell2Id": 6,
+      "summonerId": 2617075385354144,
+      "team": 1,
+      "wardSkinId": -1
+    }
+  ],
+  "pickOrderSwaps": [],
+  "recoveryCounter": 0,
+  "rerollsRemaining": 0,
+  "skipChampionSelect": false,
+  "theirTeam": [
+    {
+      "assignedPosition": "",
+      "cellId": 1,
+      "championId": 0,
+      "championPickIntent": 0,
+      "nameVisibilityType": "",
+      "obfuscatedPuuid": "",
+      "obfuscatedSummonerId": 0,
+      "puuid": "",
+      "selectedSkinId": 0,
+      "spell1Id": 0,
+      "spell2Id": 0,
+      "summonerId": 0,
+      "team": 2,
+      "wardSkinId": -1
+    }
+  ],
+  "timer": {
+    "adjustedTimeLeftInPhase": 9902,
+    "internalNowInEpochMs": 1704978771428,
+    "isInfinite": false,
+    "phase": "FINALIZATION",
+    "totalTimeInPhase": 12902
+  },
+  "trades": []
+}

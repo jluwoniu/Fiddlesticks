@@ -24,7 +24,7 @@ pub mod summoner_v1 {
         #[serde(rename = "rerollPoints")]
         pub reroll_points: RerollPoints,
         #[serde(rename = "summonerId")]
-        pub summoner_id: isize,
+        pub summoner_id: i64,
         #[serde(rename = "summonerLevel")]
         pub summoner_level: i32,
         #[serde(rename = "tagLine")]
@@ -53,7 +53,7 @@ pub mod summoner_v1 {
 }
 
 pub mod gameflow_v1 {
-    
+
     #[derive(Clone, Debug, serde::Serialize, serde::Deserialize)]
     pub enum GameflowPhase {
         None,
@@ -69,17 +69,62 @@ pub mod gameflow_v1 {
 }
 
 pub mod lobby_v2 {
-    #[derive(Clone, Debug)]
-    #[derive(serde::Serialize, serde::Deserialize)]
+    #[derive(Clone, Debug, serde::Serialize, serde::Deserialize)]
     pub struct NewLobby {
         #[serde(rename = "queueId")]
         pub queue_id: i32,
     }
 
-    #[derive(Clone, Debug)]
-    #[derive(serde::Serialize, serde::Deserialize)]
+    #[derive(Clone, Debug, serde::Serialize, serde::Deserialize)]
     pub struct Lobby {
         #[serde(rename = "canStartActivity")]
         pub can_start_activity: bool,
     }
 }
+
+pub mod champ_select_v1 {
+    /// Session data object.
+    #[derive(Clone, Debug, serde::Serialize, serde::Deserialize)]
+    pub struct Session {
+        #[serde(rename = "allowBattleBoost")]
+        pub allow_battle_boost: bool,
+        #[serde(rename = "actions")]
+        pub actions: Vec<Vec<Action>>,
+        #[serde(rename = "myTeam")]
+        pub my_team: Vec<Cell>,
+    }
+
+    #[derive(Clone, Debug, serde::Serialize, serde::Deserialize)]
+    pub struct Action {
+        #[serde(rename = "actorCellId")]
+        pub actor_cell_id: i32,
+        #[serde(rename = "championId")]
+        pub champion_id: i32,
+        #[serde(rename = "completed")]
+        pub completed: bool,
+        #[serde(rename = "id")]
+        pub id: i32,
+    }
+    #[derive(Clone, Debug, serde::Serialize, serde::Deserialize)]
+    pub struct Cell {
+        #[serde(rename = "cellId")]
+        pub cell_id: i32,
+        #[serde(rename = "championId")]
+        pub champion_id: i32,
+        #[serde(rename = "summonerId")]
+        pub summoner_id: i64,
+    }
+
+    #[derive(Clone, Debug, serde::Serialize, serde::Deserialize)]
+    pub struct NewAction {
+        #[serde(rename = "championId")]
+        pub champion_id: i64,
+        #[serde(rename = "completed")]
+        pub completed: bool,
+        #[serde(rename = "id")]
+        pub id: i32,
+    }
+}
+
+#[derive(Clone, Debug, serde::Serialize, serde::Deserialize)]
+pub struct Empty;
